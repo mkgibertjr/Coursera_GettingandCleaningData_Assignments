@@ -26,7 +26,7 @@ tinytex::install_tinytex()
 ```
 
 ## Correspondence 
-Please address any questions to Myron Keith Gibert Jr at [mkgibertjr@msn.com](mailto:mkgibertjr@msn.com).  Code for this project is stored in a [GitHub repository](https://github.com/mkgibertjr/CouseraRProgramming_Assignments).
+Please address any questions to Myron Keith Gibert Jr at [mkgibertjr@msn.com](mailto:mkgibertjr@msn.com).  Code for this project is stored in a [GitHub repository](https://github.com/mkgibertjr/Coursera_GettingandCleaningData_Assignments).
 
 ## Introduction
 The purpose of this project is to demonstrate my ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. I was graded by my peers on a series of yes/no questions related to the project. I was required to submit: 1) a tidy data set as described below, 2) a link to a Github repository with my script for performing the analysis, and 3) a code book that describes the variables, the data, and any transformations or work that I performed to clean up the data called CodeBook.md. I also included a README.md in the Github repository (repo) with my scripts. This repo explains how all of the scripts work and how they are connected.
@@ -45,12 +45,21 @@ I created an R script called run_analysis.R that does the following.
 
 ## Set Parameters
 ```{r parameters}
+#set the directory that contains the files
+path <- "UCI HAR Dataset"
+#identifier 1
+id1 <- 1
+#identifier 2
+id2 <- 2
+#separator
+separator <- "_"
 #set output directory? Default: outputdir <- "assignment1outputs"
 outputdir <- "assignmentoutputs"
 #Overwrite contents of the output directory? Default: deleteoutputs <- FALSE
 deleteoutputs <- TRUE
 #Delete specdata/ directory after completing the analysis? Default: deletespec <- TRUE
 deletespec <- TRUE
+
 ```
 
 ## Debug
@@ -103,6 +112,140 @@ if(!dir.exists("UCI HAR Dataset")){
 }
 
 ```
+
+## Reading in the data
+
+```{r data}
+
+i = 1
+
+filenames.uci <-  list.files(path = path,pattern = "\\.txt$")
+
+for(i in 1:length(filenames.uci)){
+  tryCatch({
+    print(filenames.uci[i])
+    varname <- gsub('.txt', '', paste(filenames.uci[i]))
+    datafile <- paste(path,filenames.uci[i],sep="/")
+    assign(paste(varname), read.table(datafile))
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+rm(varname)
+rm(datafile)
+
+filenames.test <- list.files(path = paste(path,"test",sep="/"),pattern = "\\.txt$")
+
+for(i in 1:length(filenames.test)){
+  tryCatch({
+    print(filenames.test[i])
+    varname <- gsub('.txt', '', paste(filenames.test[i]))
+    datafile <- paste(path,"test",filenames.test[i],sep="/")
+    assign(paste(varname), read.table(datafile))
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+rm(varname)
+rm(datafile)
+
+filenames.train <- list.files(path = paste(path,"train",sep="/"),pattern = "\\.txt$")
+
+for(i in 1:length(filenames.train)){
+  tryCatch({
+    print(filenames.train[i])
+    varname <- gsub('.txt', '', paste(filenames.train[i]))
+    datafile <- paste(path,"train",filenames.train[i],sep="/")
+    assign(paste(varname), read.table(datafile))
+  }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
+}
+rm(varname)
+rm(datafile)
+
+```
+
+## Step 1: Merge training and test sets to create one data set.
+
+```{r step1}
+
+listenvironment <- ls()
+pattern <- "_train|_test"
+
+object.find <- grep(pattern,listenvironment)
+objectnames <- listenvironment[object.find]
+object.categories <- t(as.data.frame(str_split(objectnames,separator)))
+
+identifier1 <- unique(object.categories[,id1])
+identifier2 <- unique(object.categories[,id2])
+
+i=1
+for (i in 1:length(identifier1)){
+    print(identifier1[i])
+    combineR <- data.frame()
+    h = 1
+  for(h in 1:length(identifier2)){
+    dataname <- as.name(paste(identifier1[i],identifier2[h],sep=separator))
+    combineR <- rbind(combineR,eval(parse(text = dataname)))
+  }
+    assign(identifier1[i],combineR)
+}
+
+```
+
+## Step 2: Extract only the mean and standard deviation for each measurement
+
+```{r step2}
+
+MeanStdOnly <- grep("mean()|std()", features[, 2]) 
+dataSet <- X[,MeanStdOnly]
+
+```
+
+## Step 3: Use descriptive activity names to name the activities in the data set
+
+```{r step3, eval = FALSE}
+
+# group the activity column of dataSet, re-name lable of levels with activity_levels, and apply it to dataSet.
+act_group <- factor(dataSet$activity)
+levels(act_group) <- activity_labels[,2]
+dataSet$activity <- act_group
+
+```
+
+## Step 4: Appropriately labels the data set with descriptive activity names
+
+```{r step4, eval = FALSE}
+
+# Create vector of "Clean" feature names by getting rid of "()" apply to the dataSet to rename labels.
+CleanFeatureNames <- sapply(features[, 2], function(x) {gsub("[()]", "",x)})
+names(dataSet) <- CleanFeatureNames[MeanStdOnly]
+
+# combine test and train of subject data and activity data, give descriptive lables
+subject <- rbind(subject_train, subject_test)
+names(subject) <- 'subject'
+activity <- rbind(y_train, y_test)
+names(activity) <- 'activity'
+
+# combine subject, activity, and mean and std only data set to create final data set.
+dataSet <- cbind(subject,activity, dataSet)
+
+```
+
+
+## Step 5: Creates a second, tidy data set with the average of each variable for each activity and each subject.
+
+```{r step5, eval = FALSE}
+
+# check if reshape2 package is installed
+if (!"reshape2" %in% installed.packages()) {
+	install.packages("reshape2")
+}
+library("reshape2")
+
+# melt data to tall skinny data and cast means. Finally write the tidy data to the working directory as "tidy_data.txt"
+baseData <- melt(dataSet,(id.vars=c("subject","activity")))
+secondDataSet <- dcast(baseData, subject + activity ~ variable, mean)
+names(secondDataSet)[-c(1:2)] <- paste("[mean of]" , names(secondDataSet)[-c(1:2)] )
+write.table(secondDataSet, "tidy_data.txt", sep = ",")
+
+```
+
 
 ## Cleanup
 This final command removes the unzipped "UCI HAR Dataset" directory if the deletespec variable is set to TRUE.  This reduces the overall storage burden of this project by removing the files that we no longer need access to. The zipped file remains in the working directory, so "UCI HAR Dataset" will be recreated whenever I use the command in line 100 (unzip) if it is deleted during this step.
