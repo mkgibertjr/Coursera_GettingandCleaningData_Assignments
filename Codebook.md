@@ -16,12 +16,11 @@ The dataset examined has the following dimensions:
 
 # Codebook summary table
 
-| Variable | Class | Number of unique values | Missing |
-| --- | --- | --- | --- | --- |
-| subject | factor | 30 | 0.00 % |
-| --- | --- | --- | --- | --- | --- |
-| activity | factor | 6 | 0.00 % |
-| --- | --- | --- | --- | --- | --- |
+| Variable | Class |
+| --- | --- |
+| Number of observations | 180 |
+| --- | --- |
+| Number of variables | 81 |
 
 
 # Variable list
