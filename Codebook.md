@@ -11,6 +11,7 @@ The dataset examined has the following dimensions:
 | Feature | Result |
 | --- | --- |
 | Number of observations | 180 |
+| --- | --- |
 | Number of variables | 81 |
 
 # Codebook summary table
@@ -19,12 +20,9 @@ The dataset examined has the following dimensions:
 | --- | --- | --- | --- | --- |
 | subject | factor | 30 | 0.00 % |
 | --- | --- | --- | --- | --- | --- |
-<<<<<<< HEAD
-=======
-| subject | factor | 30 | 0.00 % |
-| --- | --- | --- | --- | --- | --- |
->>>>>>> 90856a97ff8d5ad164a803e9c5366b1c9ea4f04f
 | activity | factor | 6 | 0.00 % |
+| --- | --- | --- | --- | --- | --- |
+
 
 # Variable list
 
