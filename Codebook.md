@@ -17,88 +17,9 @@ The dataset examined has the following dimensions:
 
 | Label | Variable | Class | # unique values | Missing |
 | --- | --- | --- | --- | --- | --- |
-| [**subject**](#subject) | factor | 30 | 0.00 % |
+| subject | factor | 30 | 0.00 % |
 | --- | --- | --- | --- | --- | --- |
-| [**activity**](#activity) | factor | 6 | 0.00 % |
-| [**[mean of] tBodyAcc-mean-Z**](#mean-of-tbodyacc-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAcc-std-X**](#mean-of-tbodyacc-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAcc-std-Y**](#mean-of-tbodyacc-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAcc-std-Z**](#mean-of-tbodyacc-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAcc-mad-X**](#mean-of-tbodyacc-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAcc-mad-Y**](#mean-of-tbodyacc-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAcc-mean-Z**](#mean-of-tgravityacc-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAcc-std-X**](#mean-of-tgravityacc-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAcc-std-Y**](#mean-of-tgravityacc-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAcc-std-Z**](#mean-of-tgravityacc-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAcc-mad-X**](#mean-of-tgravityacc-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAcc-mad-Y**](#mean-of-tgravityacc-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerk-mean-Z**](#mean-of-tbodyaccjerk-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerk-std-X**](#mean-of-tbodyaccjerk-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerk-std-Y**](#mean-of-tbodyaccjerk-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerk-std-Z**](#mean-of-tbodyaccjerk-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerk-mad-X**](#mean-of-tbodyaccjerk-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerk-mad-Y**](#mean-of-tbodyaccjerk-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyro-mean-Z**](#mean-of-tbodygyro-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyro-std-X**](#mean-of-tbodygyro-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyro-std-Y**](#mean-of-tbodygyro-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyro-std-Z**](#mean-of-tbodygyro-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyro-mad-X**](#mean-of-tbodygyro-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyro-mad-Y**](#mean-of-tbodygyro-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerk-mean-Z**](#mean-of-tbodygyrojerk-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerk-std-X**](#mean-of-tbodygyrojerk-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerk-std-Y**](#mean-of-tbodygyrojerk-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerk-std-Z**](#mean-of-tbodygyrojerk-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerk-mad-X**](#mean-of-tbodygyrojerk-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerk-mad-Y**](#mean-of-tbodygyrojerk-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccMag-mad**](#mean-of-tbodyaccmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccMag-max**](#mean-of-tbodyaccmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAccMag-mad**](#mean-of-tgravityaccmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] tGravityAccMag-max**](#mean-of-tgravityaccmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerkMag-mad**](#mean-of-tbodyaccjerkmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyAccJerkMag-max**](#mean-of-tbodyaccjerkmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroMag-mad**](#mean-of-tbodygyromag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroMag-max**](#mean-of-tbodygyromag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerkMag-mad**](#mean-of-tbodygyrojerkmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] tBodyGyroJerkMag-max**](#mean-of-tbodygyrojerkmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-mean-Z**](#mean-of-fbodyacc-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-std-X**](#mean-of-fbodyacc-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-std-Y**](#mean-of-fbodyacc-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-std-Z**](#mean-of-fbodyacc-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-mad-X**](#mean-of-fbodyacc-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-mad-Y**](#mean-of-fbodyacc-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-meanFreq-Z**](#mean-of-fbodyacc-meanfreq-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-skewness-X**](#mean-of-fbodyacc-skewness-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAcc-kurtosis-X**](#mean-of-fbodyacc-kurtosis-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-mean-Z**](#mean-of-fbodyaccjerk-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-std-X**](#mean-of-fbodyaccjerk-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-std-Y**](#mean-of-fbodyaccjerk-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-std-Z**](#mean-of-fbodyaccjerk-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-mad-X**](#mean-of-fbodyaccjerk-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-mad-Y**](#mean-of-fbodyaccjerk-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-meanFreq-Z**](#mean-of-fbodyaccjerk-meanfreq-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-skewness-X**](#mean-of-fbodyaccjerk-skewness-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccJerk-kurtosis-X**](#mean-of-fbodyaccjerk-kurtosis-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-mean-Z**](#mean-of-fbodygyro-mean-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-std-X**](#mean-of-fbodygyro-std-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-std-Y**](#mean-of-fbodygyro-std-y) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-std-Z**](#mean-of-fbodygyro-std-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-mad-X**](#mean-of-fbodygyro-mad-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-mad-Y**](#mean-of-fbodygyro-mad-y) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-meanFreq-Z**](#mean-of-fbodygyro-meanfreq-z) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-skewness-X**](#mean-of-fbodygyro-skewness-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyGyro-kurtosis-X**](#mean-of-fbodygyro-kurtosis-x) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccMag-mad**](#mean-of-fbodyaccmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccMag-max**](#mean-of-fbodyaccmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyAccMag-kurtosis**](#mean-of-fbodyaccmag-kurtosis) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyAccJerkMag-mad**](#mean-of-fbodybodyaccjerkmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyAccJerkMag-max**](#mean-of-fbodybodyaccjerkmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyAccJerkMag-kurtosis**](#mean-of-fbodybodyaccjerkmag-kurtosis) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyGyroMag-mad**](#mean-of-fbodybodygyromag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyGyroMag-max**](#mean-of-fbodybodygyromag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyGyroMag-kurtosis**](#mean-of-fbodybodygyromag-kurtosis) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyGyroJerkMag-mad**](#mean-of-fbodybodygyrojerkmag-mad) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyGyroJerkMag-max**](#mean-of-fbodybodygyrojerkmag-max) | numeric | 180 | 0.00 % |
-| [**[mean of] fBodyBodyGyroJerkMag-kurtosis**](#mean-of-fbodybodygyrojerkmag-kurtosis) | numeric | 180 | 0.00 % |
+| activity | factor | 6 | 0.00 % |
 
 # Variable list
 
