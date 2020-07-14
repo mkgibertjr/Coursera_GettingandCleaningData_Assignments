@@ -14,15 +14,6 @@ The dataset examined has the following dimensions:
 | --- | --- |
 | Number of variables | 81 |
 
-# Codebook summary table
-
-| Variable | Class |
-| --- | --- |
-| Number of observations | 180 |
-| --- | --- |
-| Number of variables | 81 |
-
-
 # Variable list
 
 ## subject
