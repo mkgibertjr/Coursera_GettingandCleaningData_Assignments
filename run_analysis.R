@@ -8,9 +8,6 @@ library("tidyverse")
 if (!require("reshape2")) install.packages("reshape2")
 library(reshape2)
 
-if (!require("dataMaid")) install.packages("dataMaid")
-library(dataMaid)
-
 ## Correspondence 
 #Please address any questions to Myron Keith Gibert Jr at [mkgibertjr@msn.com](mailto:mkgibertjr@msn.com).  
 #Code for this project is stored at https://github.com/mkgibertjr/Coursera_GettingandCleaningData_Assignments
@@ -170,10 +167,6 @@ baseData <- melt(dataSet,(id.vars=c("subject","activity")))
 secondDataSet <- dcast(baseData, subject + activity ~ variable, mean)
 names(secondDataSet)[-c(1:2)] <- paste("[mean of]" , names(secondDataSet)[-c(1:2)] )
 write.csv(secondDataSet,"tidy_data.csv",row.names=FALSE)
-
-## Generate Codebook
-
-makeCodebook(secondDataSet)
 
 ## Cleanup
 #This final command removes the unzipped "UCI HAR Dataset" directory if the deletespec variable is set to TRUE.  This reduces the overall storage burden of this project by removing the files that we no longer need access to. The zipped file remains in the working directory, so "UCI HAR Dataset" will be recreated whenever I use the command in line 100 (unzip) if it is deleted during this step.
